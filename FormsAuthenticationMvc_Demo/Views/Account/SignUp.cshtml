@@ -1,0 +1,43 @@
+﻿@model FormsAuthenticationMvc_Demo.Models.User
+
+@{
+    ViewBag.Title = "SignUp";
+}
+
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card rounded-0">
+                        <div class="card-header">
+                            <h3 class="mb-0">Sign Up</h3>
+                        </div>
+                        <div class="card-body">
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.UserName)
+                                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.UserName)
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.UserPassword)
+                                    @Html.PasswordFor(m => m.UserPassword, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.UserPassword)
+                                </div>
+                                <button type="submit" class="btn btn-primary float-right rounded-0">Sign Up</button>
+                                <div>
+                                    @Html.ActionLink("Login here", "Login","Account")
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
